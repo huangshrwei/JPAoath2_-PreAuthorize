@@ -1,27 +1,17 @@
-/*
 -- Query: SELECT * FROM awsDB.user_profile
-LIMIT 0, 1000
-
+-- LIMIT 0, 1000
 -- Date: 2022-09-04 22:15
-*/
 INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (1,'Bob','0000','2022-07-31 15:58:56','2022-08-17 08:22:44','ADMIN');
 INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (2,'L','123333','2022-08-03 17:04:26','2022-08-17 08:22:53','USER');
 INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (3,'Z3','000000','2022-01-26 08:55:21','2022-08-17 08:23:00','USER');
-INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (6,'KK','12','2021-12-09 12:18:39','2022-08-17 08:23:08','ADMIN');
-INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (20,'Cool','Aa123456','2022-08-24 16:02:07','2022-08-24 16:02:07','ADMIN');
-INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (21,'AD','111111','2022-08-24 16:29:29','2022-08-24 16:29:29','USER');
-INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (22,'BBQ','aB11111111','2022-08-24 16:34:04','2022-08-24 16:34:04','ADMIN');
-INSERT INTO user_profile (`user_id`,`user_name`,`user_password`,`creation_date`,`updated_date`,`role`) VALUES (23,'AE88','bB12345','2022-08-24 16:57:15','2022-08-24 16:57:15','ADMIN');
-INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (1,'K10','Bob','Huang',NULL,NULL,'M',NULL,NULL,NULL,NULL,'2022-01-26 07:35:18',1,'2022-01-27 06:58:18',1);
-INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (2,'K2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2022-01-26 07:35:26',2,'2022-01-26 08:52:35',2);
-INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (3,'Z3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2022-01-26 08:55:21',3,'2022-01-26 08:55:21',3);
-INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (6,'KK','阿花','黃','台北市大安區一號999樓',NULL,'M',NULL,NULL,NULL,?,'2022-01-08 21:20:47',1,'2022-01-22 15:05:54',6);
-/*
--- Query: SELECT * FROM awsDB.products
-LIMIT 0, 1000
 
+INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (1,'Bob','Bob','Huang',NULL,NULL,'M',NULL,NULL,NULL,NULL,'2022-01-26 07:35:18',1,'2022-01-27 06:58:18',1);
+INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (2,'L',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2022-01-26 07:35:26',2,'2022-01-26 08:52:35',2);
+INSERT INTO user_detail (`user_id`,`user_name`,`first_name`,`last_name`,`address`,`email`,`sex`,`edu`,`birthday`,`professional`,`photo`,`creation_date`,`created_by`,`updated_date`,`updated_by`) VALUES (3,'Z3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2022-01-26 08:55:21',3,'2022-01-26 08:55:21',3);
+
+-- Query: SELECT * FROM awsDB.products
+-- LIMIT 0, 1000
 -- Date: 2022-09-04 22:13
-*/
 INSERT INTO products (`product_id`,`name`,`price`,`image`,`category`,`creation_date`,`creation_by`,`updated_date`) VALUES (1,'Brocolli - 1 Kg',120,'https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/broccoli.jpg','vegetables','2022-01-04 01:09:36',1,'2022-01-04 01:09:36');
 INSERT INTO products (`product_id`,`name`,`price`,`image`,`category`,`creation_date`,`creation_by`,`updated_date`) VALUES (2,'Cauliflower - 1 Kg',60,'https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cauliflower.jpg','vegetables','2022-01-04 01:09:36',1,'2022-01-04 01:09:36');
 INSERT INTO products (`product_id`,`name`,`price`,`image`,`category`,`creation_date`,`creation_by`,`updated_date`) VALUES (3,'Cucumber - 1 Kg',48,'https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cucumber.jpg','vegetables','2022-01-04 01:09:36',1,'2022-01-04 01:09:36');
