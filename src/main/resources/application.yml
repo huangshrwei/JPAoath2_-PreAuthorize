@@ -34,10 +34,10 @@ management:
     
 # 自定义jwt key
 jwt:
-  tokenHeader: Authorization #JWT存储的请求头
-  secret: 1048c08c3a502d78feex2b59ce243342 #JWT加解密使用的密钥
-  expiration: 604800 #JWT的超期限时间(60*60*24)
-  tokenHead: Bearer  #JWT负载中拿到开头       
+  tokenHeader: Authorization #JWT存储的request header
+  secret: 1048c08c3a502d78feex2b59ce243342 #JWT加密解密使用的密鑰
+  expiration: 604800 #JWT的使用期限(60*60*24)
+  tokenHead: Bearer  #JWT负载中token前置字串      
     
     
 springfox:
