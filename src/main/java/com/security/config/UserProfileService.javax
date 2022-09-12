@@ -1,0 +1,80 @@
+package com.security.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import com.security.entity.UserProfile;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+import com.security.dao.UserProfileRepository;
+
+@Service
+@Slf4j
+public class UserProfileService  implements UserDetailsService {
+
+    @Autowired
+    private UserProfileRepository userProfileRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+
+    	UserProfile userProfile = userProfileRepository.getUsername(username);
+
+        if (userProfile == null) {
+            throw new UsernameNotFoundException(username + " not found");
+        }
+                
+
+		List<String> roles = new ArrayList<>();
+		
+		if (userProfile.getRole().equals("ADMIN")) {
+			roles.add("USER");
+			roles.add(userProfile.getRole());
+		}else {
+			roles.add(userProfile.getRole());
+		}
+
+		List<GrantedAuthority> grantedAuthorities = roles.stream().map(r -> {
+			return new SimpleGrantedAuthority(r.toString());
+		}).collect(Collectors.toList());
+
+		
+/*        		
+		org.springframework.security.core.userdetails.User usr = new org.springframework.security.core.userdetails.User(
+				userProfile.getUserName(), "{noop}" + userProfile.getUserPassword(), grantedAuthorities);
+		
+		log.info(usr.getUsername() + ", Role: "+usr.getAuthorities().toString());		
+				
+        return usr;		
+*/        
+
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+        UserDetails userDetails = User.builder()
+                .username(userProfile.getUserName())
+                .password(passwordEncoder.encode(userProfile.getUserPassword()))
+                .roles(userProfile.getRole()).build();
+        
+        return userDetails;
+
+		
+    }
+
+
+}
